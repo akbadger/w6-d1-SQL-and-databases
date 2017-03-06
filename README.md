@@ -58,9 +58,8 @@
 
 8. How much was spent on books?
 
-    select sum (price) from items where category like '%books%';
-    sum (price)
-    59241
+    select sum (items.price * orders.quantity) as total from orders join items on items.id = orders.item_id where items.category like '%Books%';
+    1081352
 
 
 9. Simulate buying an item by inserting a User for yourself and an Order for that User.
@@ -71,3 +70,10 @@ insert into addresses (user_id, street, city, state, zip) values ('51', '1234 st
 
 insert into orders (user_id, item_id, quantity, created_at) values ('51', '43', '254', '2017-03-06 00:43:21.876667');
 
+
+--Adventure Mode--
+10. What item was ordered most often? Grossed the most money?
+
+11. What user spent the most?
+
+12. What were the top 3 highest grossing categories?
